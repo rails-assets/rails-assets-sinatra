@@ -6,7 +6,25 @@ This is a minimal demo app showing how to use [Rails Assets](https://rails-asset
 
 This application is using [Sinatra Asset Pipeline](https://github.com/kalasjocke/sinatra-asset-pipeline) that integrates Sinatra with Sprockets.
 
-Integrating [Rails Assets](https://rails-assets.org/) is as simple as appening its load paths:
+Integrating [Rails Assets](https://rails-assets.org/) is as simple as appening its load paths.
+
+### Gemfile
+
+```ruby
+source 'https://rubygems.org'
+source 'https://rails-assets.org'
+
+gem 'sinatra', require: 'sinatra/base'
+gem 'sinatra-asset-pipeline', require: 'sinatra/asset_pipeline'
+
+gem 'uglifier'
+gem 'slim'
+
+gem 'rails-assets-jquery'
+gem 'rails-assets-bootstrap'
+```
+
+### application.rb
 
 ```ruby
 class Application < Sinatra::Base
@@ -29,11 +47,24 @@ class Application < Sinatra::Base
 end
 ```
 
-# Using Rails Assets
+### assets/js/application.js.coffee
 
-All explained [on our homepage](https://rails-assets.org/).
+```coffee
+#= require jquery
+#= require bootstrap
+```
 
-You can use [Sprockets Helpers](https://github.com/petebrowne/sprockets-helpers) in your layout to include the manifests:
+### assets/css/application.css.scss
+
+```scss
+@import "bootstrap";
+
+.contrainer {
+  max-width: 500px !important;
+}
+```
+
+### views/layout.slim
 
 ```slim
 doctype html
@@ -47,13 +78,6 @@ html lang="en"
     .container
       == yield
     == javascript_tag 'application'
-```
-
-Manifests are defined in `assets/css/application.css.scss` and `assets/js/application.js.coffee`. You can use them the same way as in Rails:
-
-```coffee
-#= require jquery
-#= require bootstrap
 ```
 
 ## Running application
