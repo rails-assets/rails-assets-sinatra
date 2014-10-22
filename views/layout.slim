@@ -1,0 +1,11 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    title Sinatra with Rails Assets
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    == stylesheet_tag 'application'
+  body
+    .container
+      == yield
+    == javascript_tag 'application'
