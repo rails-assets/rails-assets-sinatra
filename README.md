@@ -4,7 +4,6 @@ This is a minimal demo app showing how to use [Rails Assets](https://rails-asset
 
 ## Heroku deployment
 
-`sinatra-asset-pipeline`
 [Sinatra Asset Pipeline](https://github.com/kalasjocke/sinatra-asset-pipeline) defines template for `assets:precompile` task. It is enabled in Rakefile:
 
 ```ruby
@@ -20,6 +19,8 @@ Heroku automatically runs `assets:precompile` upon deploy, so you can just:
 heroku create rails-assets-sinatra
 git push heroku master
 ```
+
+Deployed demo is available on: http://rails-assets-sinatra.herokuapp.com/
 
 ## Contributing
 
