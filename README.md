@@ -34,6 +34,7 @@ class Application < Sinatra::Base
     set :assets_js_compressor, :uglifier
     register Sinatra::AssetPipeline
 
+    # Actual Rails Assets integration, everything else is Sprockets
     if defined?(RailsAssets)
       RailsAssets.load_paths.each do |path|
         settings.sprockets.append_path(path)
@@ -58,10 +59,6 @@ end
 
 ```scss
 @import "bootstrap";
-
-.contrainer {
-  max-width: 500px !important;
-}
 ```
 
 #### views/layout.slim
