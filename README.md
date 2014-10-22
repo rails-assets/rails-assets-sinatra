@@ -8,7 +8,7 @@ This application is using [Sinatra Asset Pipeline](https://github.com/kalasjocke
 
 Integrating [Rails Assets](https://rails-assets.org/) is as simple as appening its load paths.
 
-### Gemfile
+#### Gemfile
 
 ```ruby
 source 'https://rubygems.org'
@@ -24,7 +24,7 @@ gem 'rails-assets-jquery'
 gem 'rails-assets-bootstrap'
 ```
 
-### application.rb
+#### application.rb
 
 ```ruby
 class Application < Sinatra::Base
@@ -47,14 +47,14 @@ class Application < Sinatra::Base
 end
 ```
 
-### assets/js/application.js.coffee
+#### assets/js/application.js.coffee
 
 ```coffee
 #= require jquery
 #= require bootstrap
 ```
 
-### assets/css/application.css.scss
+#### assets/css/application.css.scss
 
 ```scss
 @import "bootstrap";
@@ -64,7 +64,7 @@ end
 }
 ```
 
-### views/layout.slim
+#### views/layout.slim
 
 ```slim
 doctype html
