@@ -2,6 +2,8 @@
 
 This is a minimal demo app showing how to use [Rails Assets](https://rails-assets.org) service with Sinatra application.
 
+Rails Assets integrates [Bower](http://bower.io/) with [Sprockets](https://github.com/sstephenson/sprockets)-based applications.
+
 ## Integration
 
 This application is using [Sinatra Asset Pipeline](https://github.com/kalasjocke/sinatra-asset-pipeline) that integrates Sinatra with Sprockets.
