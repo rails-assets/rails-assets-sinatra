@@ -1,16 +1,14 @@
 # Using Rails Assets with Sinatra
 
-This is a minimal demo app showing how to use [Rails Assets](https://rails-assets.org) service with Sinatra application.
+This is a minimal demo app showing how to use [Rails Assets](https://rails-assets.org) with Sinatra application.
 
 Rails Assets integrates [Bower](http://bower.io/) with [Sprockets](https://github.com/sstephenson/sprockets)-based applications.
 
 ## Integration
 
-This application is using [Sinatra Asset Pipeline](https://github.com/kalasjocke/sinatra-asset-pipeline) that integrates Sinatra with Sprockets.
-
-Integrating [Rails Assets](https://rails-assets.org/) is as simple as appening its load paths.
-
 #### Gemfile
+
+You need to add appropriate `source` and `rails-assets-` gems.
 
 ```ruby
 source 'https://rubygems.org'
@@ -27,6 +25,10 @@ gem 'rails-assets-bootstrap'
 ```
 
 #### application.rb
+
+This application is using [Sinatra Asset Pipeline](https://github.com/kalasjocke/sinatra-asset-pipeline) that integrates Sinatra with Sprockets.
+
+Integrating [Rails Assets](https://rails-assets.org/) with Sprockets is as simple as appening its load paths (see application.rb).
 
 ```ruby
 class Application < Sinatra::Base
@@ -52,6 +54,8 @@ end
 
 #### assets/js/application.js.coffee
 
+You use it the same way as in Rails.
+
 ```coffee
 #= require jquery
 #= require bootstrap
@@ -59,11 +63,15 @@ end
 
 #### assets/css/application.css.scss
 
+Usually it's better to use `@import` instead `require`:
+
 ```scss
 @import "bootstrap";
 ```
 
 #### views/layout.slim
+
+You can use [Sprockets Helpers](https://github.com/petebrowne/sprockets-helpers) to include `application` manifests:
 
 ```slim
 doctype html
