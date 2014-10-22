@@ -2,6 +2,60 @@
 
 This is a minimal demo app showing how to use [Rails Assets](https://rails-assets.org) service with Sinatra application.
 
+## Integration
+
+This application is using [Sinatra Asset Pipeline](https://github.com/kalasjocke/sinatra-asset-pipeline) that integrates Sinatra with Sprockets.
+
+Integrating [Rails Assets](https://rails-assets.org/) is as simple as appening its load paths:
+
+```ruby
+class Application < Sinatra::Base
+  configure do
+    set :assets_precompile, %w(application.js application.css *.png *.jpg *.svg *.eot *.ttf *.woff)
+    set :assets_css_compressor, :sass
+    set :assets_js_compressor, :uglifier
+    register Sinatra::AssetPipeline
+
+    if defined?(RailsAssets)
+      RailsAssets.load_paths.each do |path|
+        settings.sprockets.append_path(path)
+      end
+    end
+  end
+
+  get '/' do
+    slim :index
+  end
+end
+```
+
+# Using Rails Assets
+
+All explained [on our homepage](https://rails-assets.org/).
+
+You can use [Sprockets Helpers](https://github.com/petebrowne/sprockets-helpers) in your layout to include the manifests:
+
+```slim
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    title Sinatra with Rails Assets
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    == stylesheet_tag 'application'
+  body
+    .container
+      == yield
+    == javascript_tag 'application'
+```
+
+Manifests are defined in `assets/css/application.css.scss` and `assets/js/application.js.coffee`. You can use them the same way as in Rails:
+
+```coffee
+#= require jquery
+#= require bootstrap
+```
+
 ## Heroku deployment
 
 [Sinatra Asset Pipeline](https://github.com/kalasjocke/sinatra-asset-pipeline) defines template for `assets:precompile` task. It is enabled in Rakefile:
