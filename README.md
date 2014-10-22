@@ -56,6 +56,14 @@ Manifests are defined in `assets/css/application.css.scss` and `assets/js/applic
 #= require bootstrap
 ```
 
+## Running application
+
+You can use any ruby server, including bare rack:
+
+```
+bundle exec rackup --port 3000
+```
+
 ## Heroku deployment
 
 [Sinatra Asset Pipeline](https://github.com/kalasjocke/sinatra-asset-pipeline) defines template for `assets:precompile` task. It is enabled in Rakefile:
