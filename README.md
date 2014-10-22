@@ -6,9 +6,13 @@ Rails Assets integrates [Bower](http://bower.io/) with [Sprockets](https://githu
 
 ## Integration
 
+It's very similar to [Rails Integration](https://rails-assets.org/). You just need to append load paths manually (see application.rb file).
+
 #### Gemfile
 
-You need to add appropriate `source` and `rails-assets-` gems.
+This application is using [Sinatra Asset Pipeline](https://github.com/kalasjocke/sinatra-asset-pipeline) that integrates Sinatra with Sprockets.
+
+You also need to add appropriate `source` and `rails-assets-` gems.
 
 ```ruby
 source 'https://rubygems.org'
@@ -25,8 +29,6 @@ gem 'rails-assets-bootstrap'
 ```
 
 #### application.rb
-
-This application is using [Sinatra Asset Pipeline](https://github.com/kalasjocke/sinatra-asset-pipeline) that integrates Sinatra with Sprockets.
 
 Integrating [Rails Assets](https://rails-assets.org/) with Sprockets is as simple as appening its load paths (see application.rb).
 
