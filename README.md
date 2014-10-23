@@ -63,7 +63,7 @@ You use it the same way as in Rails.
 
 #### assets/css/application.css.scss
 
-Usually it's better to use `@import` instead `require`:
+Usually it's better to use `@import` instead of `require`:
 
 ```scss
 @import "bootstrap";
